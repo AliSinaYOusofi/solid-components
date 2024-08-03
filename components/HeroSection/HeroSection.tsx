@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { RiBootstrapFill, RiTailwindCssFill } from "react-icons/ri";
+
 export default function HeroSection() {
     return (
         <div className="mt-40 flex flex-col items-center justify-center w-full h-full text-center">
@@ -16,11 +17,13 @@ export default function HeroSection() {
             </p>
 
             <div className="flex  gap-10">
-                <button className="flex gap-3 items-center justify-center mt-8 px-8 py-4 bg-blue-500 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-600 transition duration-300 ease-in-out">
+                
+                <button className="flex gap-3 items-center justify-center mt-8 px-8 py-4 bg-[#2C2C2C] text-white text-lg font-semibold rounded-full shadow-lg hover:bg-white/40 transition duration-300 ease-in-out">
                     <RiTailwindCssFill />
                     Tailwind Components
                 </button>
-                <button className="flex gap-3 items-center justify-center mt-8 px-8 py-4 bg-blue-500 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-600 transition duration-300 ease-in-out">
+
+                <button className="flex gap-3 items-center justify-center mt-8 px-8 py-4 bg-white text-black text-lg font-semibold rounded-full shadow-lg hover:bg-white/60 transition duration-300 ease-in-out">
                     <RiBootstrapFill />
                     Bootstrap Components
                 </button>

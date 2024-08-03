@@ -1,69 +1,90 @@
-"use client"
+"use client";
 
-import React, { useEffect } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import React, { useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const MainNavbar: React.FC = () => {
+  const router = useRouter();
 
-    const router = useRouter()
+  useEffect(() => {
     
-    useEffect( () => {
+    const handleKeyDownForLogin = (event: KeyboardEvent): void => {
+      if (event.key === "l") {
+        router.push("/login");
+      }
+    };
+
+    const handleKeyDownForSignup = (event: KeyboardEvent): void => {
+      if (event.key === "s") {
+        router.push("/signup");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDownForSignup);
+    window.addEventListener("keydown", handleKeyDownForLogin);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDownForLogin);
+      window.removeEventListener("keydown", handleKeyDownForSignup);
+    };
+  }, []);
+
+  return (
+    <nav className="mx-auto mt-0 w-[70%]">
+      
+      <div className="flex gap-20 mt-3 justify-between items-center border border-gray-200 px-10 py-3 rounded-full shadow-md bg-white">
         
-        const handleKeyDownForLogin = (event: KeyboardEvent) : void => {
-            if (event.key === "l") {
-                router.push("/login")
-            }
-        }
+        <div className="flex items-center">
+       
+          <Link href="/">
+            <span className="text-2xl font-bold cursor-pointer text-gray-800">SR</span>
+          </Link>
+        </div>
 
-        const handleKeyDownForSignup = (event: KeyboardEvent) : void => {
-            if (event.key === "s") {
-                router.push("/signup")
-            }
-        }
+        <div className="flex items-center">
+          <ul className="flex items-center gap-8">
 
-        window.addEventListener("keydown", handleKeyDownForSignup)
-        window.addEventListener("keydown", handleKeyDownForLogin)
+            <Link href="/components">
+                <li className="text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-all text-sm py-2 px-4 rounded-lg cursor-pointer">
+                    Components
+                </li>
+            </Link>
 
-        return () => {
-            window.removeEventListener("keydown", handleKeyDownForLogin)
-            window.removeEventListener("keydown", handleKeyDownForSignup)
-        }
-    }, [])
+            <Link href="/about">
 
-    return (
-        <nav className="mx-auto mt-0 w-[70%]">
-            
-            <div className="flex gap-20 justify-between items-center border-[1px] outline-none border-gray-50 px-10 py-2 rounded-full ">
-            
-                <div className="flex items-center">
-                    <span className="text-xl font-bold">SR</span>
-                </div>
+                <li className="text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-all text-sm py-2 px-4 rounded-lg cursor-pointer">
+                About
+                </li>
+            </Link>
 
-                <div className="flex items-center">
-                    <ul className="flex items-center  gap-10  ">
-                        <li className="text-gray-400 hover:text-white hover:bg-[#555555] transition-all text-[13px] duration-3 py-2 px-4 rounded-lg 00 cursor-pointer"> Components </li>
-                        <li className="text-gray-400 hover:text-white hover:bg-[#555555] transition-all text-[13px] duration-3 py-2 px-4 rounded-lg 00 cursor-pointer"> About </li>
-                        <li className="text-gray-400 hover:text-white hover:bg-[#555555] transition-all text-[13px] duration-3 py-2 px-4 rounded-lg 00 cursor-pointer"> Blog </li>
-                    </ul>
-                </div>
+            <Link href="/blog">
             
-                <div className="flex items-center gap-10">
-            
-                    <button className="bg-[#2C2C2C] py-2 px-3 rounded-lg text-[13px] font-bold">
-                        Login
-                        <span className="bg-[#555555]  text-[13px] rounded-full px-2 py-1 ml-2">L</span>
-                    </button>
-            
-                    <button className="py-2 px-3 rounded-lg text-[13px] bg-white text-black">
-                        Sign Up
-                        <span className="bg-gray-200  text-[13px] rounded-full px-2 py-1 ml-2">S</span>
-                    </button>
-                </div>
-            </div>
-            
-        </nav>
-    );
+                <li className="text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-all text-sm py-2 px-4 rounded-lg cursor-pointer">
+                    Blog
+                </li>
+            </Link>
+          </ul>
+        </div>
+
+        <div className="flex items-center gap-6">
+          <button className="bg-gray-800 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:bg-gray-700 transition-all">
+            Login
+            <span className="bg-gray-600 text-white text-sm rounded-full px-2 py-1 ml-2">
+              L
+            </span>
+          </button>
+
+          <button className="bg-white text-gray-800 py-2 px-4 rounded-lg text-sm font-semibold border border-gray-300 hover:bg-gray-100 transition-all">
+            Sign Up
+            <span className="bg-gray-200 text-gray-800 text-sm rounded-full px-2 py-1 ml-2">
+              S
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default MainNavbar;
