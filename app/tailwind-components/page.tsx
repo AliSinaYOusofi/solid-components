@@ -1,21 +1,19 @@
+import ComponentCard from '@/components/Global/ComponentsCard'
 import React from 'react'
+import { IoHeartDislikeCircleOutline } from 'react-icons/io5'
+import { FaRegAddressCard } from "react-icons/fa6";
+
 
 export default function page () {
 
-    const componentsData = [
-        { category: 'Hero Sections', count: 10 },
-        { category: 'Hero Forms', count: 4 },
-        { category: 'Icon Sections', count: 10 },
-        { category: 'Pricing Sections', count: 4 },
-        { category: 'FAQ Sections', count: 4 },
-        { category: 'Blog Sections', count: 12, new: true },
-        { category: 'Blog Articles', count: 2 },
-        { category: 'Team Sections', count: 4 }
-    ];
-
     return (
-        <>
-            
-        </>
+        <div className="flex flex-wrap mt-20 justify-center gap-4 w-[70%] mx-auto">
+            <ComponentCard 
+                title='Card Sections' 
+                icon={<FaRegAddressCard size={40} />} 
+                description='10 Components'
+            />
+        </div>
+
     )
 }

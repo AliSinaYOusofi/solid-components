@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer/Footer";
 import GlobalBigHeader from "@/components/Global/GlobalBigHeader";
 import MainNavbar from "@/components/Navbar/MainNavbar";
 import type { Metadata } from "next";
@@ -22,6 +23,7 @@ export default function layout({
         <MainNavbar />
         <GlobalBigHeader longDescription="collection of free Tailwind CSS components that can be used in your next project. With a range of components, you can build your next marketing website, admin dashboard, eCommerce store and much more." title="Tailwind Components" shortDescription="Free and beautiful tailwind components"/>
         {children}
+        <Footer />
       </div>
     );
 }
