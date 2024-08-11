@@ -33,7 +33,7 @@ const MainNavbar: React.FC = () => {
   return (
     <nav className="mx-auto mt-0 w-[70%]">
       
-      <div className="flex gap-20 mt-3 justify-between items-center border border-gray-200 px-10 py-3 rounded-full shadow-md bg-white">
+      <div className="flex gap-20 mt-3 justify-between items-center border border-gray-200 px-10 py-3 rounded-full shadow-md bg-black/40">
         
         <div className="flex items-center">
        
